@@ -28,8 +28,8 @@ def crawl_stock_data(stock_symbol):
                 name = soup.select_one('.wrap_company a').text.strip()
                 price = soup.select_one('.no_today .blind').text.strip()
             else:
-                price_element = soup.select_one('[data-test="qsp-price"]')
-                price = price_element.get('value')
+                price_element = soup.select_one('[data-testid="qsp-price"]')
+                price = price_element.get('data-value')
 
             print(f"{name}: {price}")
         return name, price
